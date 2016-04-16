@@ -3,7 +3,7 @@ var fs = require("fs");
 var path = require("path");
 function main() {
     console.log("");
-    console.log("Save Transfer Tool for Hyper Light Difter - v0.2.0");
+    console.log("Save Transfer Tool for Hyper Light Difter - v1.0.0");
     console.log("https://github.com/Justin-Credible/hld-save-transfer");
     console.log("");
     var showHelp = process.argv.length !== 5
