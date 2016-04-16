@@ -2,7 +2,8 @@
 var fs = require("fs");
 var path = require("path");
 function main() {
-    console.log("Save Transfer Tool for Hyper Light Difter - v0.1.0");
+    console.log("");
+    console.log("Save Transfer Tool for Hyper Light Difter - v0.2.0");
     console.log("https://github.com/Justin-Credible/hld-save-transfer");
     console.log("");
     var showHelp = process.argv.length !== 5
@@ -16,7 +17,6 @@ function main() {
     if (showHelp) {
         console.log("Usage: hld-save-transfer <source save> <target save> <output save>");
         console.log("See readme.md for more details.");
-        console.log("");
         return;
     }
     var sourceSavePath = path.resolve(process.argv[2]);
@@ -52,7 +52,7 @@ function main() {
     }
     console.log("Parsed OK!");
     console.log("Reading target save from: " + targetSavePath);
-    var rawTarget = fs.readFileSync("/tmp/target.sav", { encoding: "binary" });
+    var rawTarget = fs.readFileSync(targetSavePath, { encoding: "binary" });
     var targetBuffer = new Buffer(rawTarget, "base64");
     var targetDataStartIndex = null;
     var targetHeaderEndIndex = null;
@@ -85,7 +85,7 @@ function main() {
     var outputBuffer = Buffer.concat([targetHeader, saveDataBuffer, new Buffer(0)]);
     var outputEncoded = outputBuffer.toString("base64");
     console.log("Writing new save file to: " + outputSavePath);
-    fs.writeFileSync("/Users/junterreiner-x/Library/Application Support/com.HeartMachine.HyperLightDrifter/HyperLight_RecordOfTheDrifter_0.sav", outputEncoded);
+    fs.writeFileSync(outputSavePath, outputEncoded);
     console.log("Done!");
 }
 main();
