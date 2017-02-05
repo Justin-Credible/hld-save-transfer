@@ -42,7 +42,7 @@ function main() {
     var rawSource = fs.readFileSync(sourceSavePath, { encoding: "utf-8" });
     var sourceBuffer = new Buffer(rawSource, "base64");
     var sourceDecoded = sourceBuffer.toString();
-    var saveData = sourceDecoded.substr(sourceDecoded.indexOf("{ \"mapMod\":")).slice(0, -1);
+    var saveData = sourceDecoded.substr(sourceDecoded.search("{ \".+\":")).slice(0, -1);
     console.log("Parsing save data...");
     try {
         JSON.parse(saveData);
