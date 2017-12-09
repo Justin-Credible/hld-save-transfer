@@ -15,13 +15,14 @@ If you don't have a save on the machine you want to transfer to yet, you can sim
 The save game locations are:
 
 * Windows: `%LocalAppData%\HyperLightDrifter`
-* Mac: `/Library/Application Support/com.HeartMachine.HyperLightDrifter/`
+* Mac: `~/Library/Application Support/com.HeartMachine.HyperLightDrifter/`
+* Linux: `~/.config/HyperLightDrifter` (Ubuntu 16.04)
 
 Next, you'll need [NodeJS](https://nodejs.org) installed. I'm using 4.2.2, but any 4.x version should work.
 
 Once you have both save files on the same machine, open a terminal/command window, install this tool, and use it to create your new save.
 
-Mac:
+Mac & Linux:
 ````
 $ cd /tmp
 $ npm install https://github.com/Justin-Credible/hld-save-transfer
@@ -47,7 +48,7 @@ Once you've created your new save you can copy it to the save location on your t
 
 I've tested this tool on Windows 10 and Mac OS 10.11.3 (my specific use case was moving my save from my Windows machine to my Mac).
 
-It should work on Linux too, but I haven't tested it there.
+It has been reported to work on Linux too (when moving from Linux to MacOS).
 
 ## Save Format
 
