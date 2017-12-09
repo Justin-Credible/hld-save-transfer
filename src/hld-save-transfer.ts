@@ -5,23 +5,23 @@ import * as path from "path";
 function main() {
 
     console.log("");
-    console.log("Save Transfer Tool for Hyper Light Difter - v1.0.1");
+    console.log("Save Transfer Tool for Hyper Light Difter - v1.0.0");
     console.log("https://github.com/Justin-Credible/hld-save-transfer");
     console.log("");
 
     let showHelp = process.argv.length !== 5
-            || process.argv.indexOf("-h") > -1
-            || process.argv.indexOf("--h") > -1
-            || process.argv.indexOf("-help") > -1
-            || process.argv.indexOf("--help") > -1
-            || process.argv.indexOf("/h") > -1
-            || process.argv.indexOf("/help") > -1
-            || process.argv.indexOf("/?") > -1;
+                    || process.argv.indexOf("-h") > -1
+                    || process.argv.indexOf("--h") > -1
+                    || process.argv.indexOf("-help") > -1
+                    || process.argv.indexOf("--help") > -1
+                    || process.argv.indexOf("/h") > -1
+                    || process.argv.indexOf("/help") > -1
+                    || process.argv.indexOf("/?") > -1;
 
     if (showHelp) {
-    console.log("Usage: hld-save-transfer <source save> <target save> <output save>");
-    console.log("See readme.md for more details.");
-    return;
+        console.log("Usage: hld-save-transfer <source save> <target save> <output save>");
+        console.log("See readme.md for more details.");
+        return;
     }
 
     var sourceSavePath = path.resolve(process.argv[2]);
@@ -29,23 +29,23 @@ function main() {
     var outputSavePath = path.resolve(process.argv[4]);
 
     if (!fs.existsSync(sourceSavePath)) {
-    console.log("Could not locate source save:\n" + sourceSavePath);
-    return;
+        console.log("Could not locate source save:\n" + sourceSavePath);
+        return;
     }
 
     if (!fs.existsSync(targetSavePath)) {
-    console.log("Could not locate target save:\n" + sourceSavePath);
-    return;
+        console.log("Could not locate target save:\n" + sourceSavePath);
+        return;
     }
 
     if (sourceSavePath === targetSavePath) {
-    console.log("The source save path and target save path cannot be the same.");
-    return;
+        console.log("The source save path and target save path cannot be the same.");
+        return;
     }
 
     if (fs.existsSync(outputSavePath)) {
-    console.log("A file already exists at the output save path; please specify a path that does not exist.\n" + outputSavePath);
-    return;
+        console.log("A file already exists at the output save path; please specify a path that does not exist.\n" + outputSavePath);
+        return;
     }
 
     console.log("Reading source save from: " + sourceSavePath);
@@ -53,7 +53,7 @@ function main() {
     var rawSource = fs.readFileSync(sourceSavePath, { encoding: "utf-8" });
     var sourceBuffer = new Buffer(rawSource, "base64");
     var sourceDecoded = sourceBuffer.toString();
-        var saveData = sourceDecoded.substr(sourceDecoded.search("{ \".+\":")).slice(0, -1);
+    var saveData = sourceDecoded.substr(sourceDecoded.search("{ \".+\":")).slice(0, -1);
 
     console.log("Parsing save data...");
 
