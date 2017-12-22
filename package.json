@@ -1,6 +1,6 @@
 {
   "name": "hld-save-transfer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Save transfer tool for the game Hyper Light Drifter",
   "repository": {
     "type": "git",
@@ -13,8 +13,9 @@
   "author": "Justin Unterreiner",
   "license": "MIT",
   "devDependencies": {
-    "tsd": "0.6.5",
-    "tslint": "3.7.4",
-    "typescript": "1.8.10"
+    "@types/node": "^8.0.57",
+    "tsc": "^1.20150623.0",
+    "tsd": "^0.6.5",
+    "tslint": "^5.8.0"
   }
 }

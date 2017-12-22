@@ -53,8 +53,7 @@ function main() {
     var rawSource = fs.readFileSync(sourceSavePath, { encoding: "utf-8" });
     var sourceBuffer = new Buffer(rawSource, "base64");
     var sourceDecoded = sourceBuffer.toString();
-
-    var saveData = sourceDecoded.substr(sourceDecoded.indexOf("{ \"mapMod\":")).slice(0, -1);
+    var saveData = sourceDecoded.substr(sourceDecoded.search("{ \".+\":")).slice(0, -1);
 
     console.log("Parsing save data...");
 
@@ -78,17 +77,17 @@ function main() {
     console.log("Scanning for unique file header...");
 
     // Here we loop over each byte in the buffer to find the start of the save data.
-    // We assume the save data JSON always starts with { "mapMod":
+    // We assume the save data JSON always starts with { "badass":
     targetBuffer.forEach((value: number, index: number, array: Uint8Array) => {
         if (value === 123 // {
                 && array[index + 1] === 32 // space
                 && array[index + 2] === 34 // quote
-                && array[index + 3] === 109 // m
+                && array[index + 3] === 98 // b
                 && array[index + 4] === 97 // a
-                && array[index + 5] === 112 // p
-                && array[index + 6] === 77 // M
-                && array[index + 7] === 111 // o
-                && array[index + 8] === 100 // d
+                && array[index + 5] === 100 // d
+                && array[index + 6] === 97 // a
+                && array[index + 7] === 115 // s
+                && array[index + 8] === 115 // s
                 && array[index + 9] === 34 // quote
                 && array[index + 10] === 58) { // colon
 
