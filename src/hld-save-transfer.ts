@@ -5,7 +5,7 @@ import * as path from "path";
 function main() {
 
     console.log("");
-    console.log("Save Transfer Tool for Hyper Light Difter - v1.0.0");
+    console.log("Save Transfer Tool for Hyper Light Difter - v1.0.1");
     console.log("https://github.com/Justin-Credible/hld-save-transfer");
     console.log("");
 

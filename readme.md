@@ -62,3 +62,13 @@ The tool works like this:
 4. Open the save from the machine to be transferred to (target save)
 5. Read the header from the target save
 6. Combine the header and save data to write a new save file (output save)
+
+
+## Making Changes
+
+```
+$ npm install
+# Makes changes to: src/hld-save-transfer.ts
+$ npm run build
+$ npm test
+```

@@ -8,14 +8,14 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "./node_modules/.bin/tsc",
+    "test": "./node_modules/.bin/tslint --project ."
   },
   "author": "Justin Unterreiner",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^8.0.57",
-    "tsc": "^1.20150623.0",
-    "tsd": "^0.6.5",
-    "tslint": "^5.8.0"
+    "@types/node": "^8.5.2",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2"
   }
 }
